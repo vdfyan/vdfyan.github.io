@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+.utama{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+    background-image: url(https://i.pinimg.com/564x/cd/ad/35/cdad3563c90bf642f93b3896ae004535.jpg);
+    background-size: cover;
+}
+
+.w3-modal-content{
+    border-radius: 3%;
+}
+
+.w3-hide-small{
+    border-radius: 3%;
+}

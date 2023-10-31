@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="admin.css">
+    <title>Peminjaman</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+            <a class="navbar-brand text-white">SELAMAT DATANG | PERPUSTAKAAN TERPADU</a>
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+            <div class="icon ml-4">
+                <h5>
+                    <i class="fa-solid fa-envelope mr-3 text-white" data-toggle="tooltip" title="Surat Masuk"></i>
+                        <i class="fa-solid fa-bell mr-3 text-white" data-toggle="tooltip" title="Notifikasi"></i>
+                        <a class="fa-solid fa-right-from-bracket mr-3 text-white" href="#" data-toggle="tooltip" title="Keluar"></a>
+                </h5>
+            </div>
+            </div>
+        </nav>
+
+        <div class="row no-gutters mt-4">
+            <div class="col-md-2 bg-primary mt-2 pr-3 pt-4">
+                    <ul class="nav flex-column ml-3 mb-5">
+                        <li class="nav-item">
+                        <a class="nav-link active text-white" href="dashboard.html"><i class="fa-solid fa-house mr-3"></i>Dashboard</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="pinjam.html"><i class="fa-solid fa-book mr-3"></i>Pinjam & Kembali</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="tambah.html"><i class="fa-solid fa-address-book mr-3"></i>Tambah Buku</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="hapus.html"><i class="fa-solid fa-trash mr-3"></i>Hapus Buku</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="peraturan.html"><i class="fa-solid fa-bars mr-3"></i>Peraturan</a><hr class="bg-secondary">
+                        </li>
+                    </ul>
+            </div>
+            
+        <div class="col-md-10 p-5 pt-2">
+            <h3>PEMINJAMAN & PENGEMBALIAN BUKU</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary" style="margin-bottom: 10px;" data-toggle="modal" data-target="#peminjamanModal">
+                                <i class="fa-solid fa-arrow-right p-2"></i>Peminjaman
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary" style="margin-bottom: 10px;  margin-left: -370px;" data-toggle="modal" data-target="#pengembalianModal">
+                                <i class="fa-solid fa-repeat p-2"></i>Pengembalian
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="modal" id="peminjamanModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Peminjaman Buku</h4>
+                                    <button type="button" class="close btn-danger" data-dismiss="modal">&times;</button>
+                                </div>
+            
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="judul">Judul Buku:</label>
+                                            <input type="text" class="form-control" id="judul">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name">Nama Peminjaman:</label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kode">Kode Buku:</label>
+                                            <input type="text" class="form-control" id="kode">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tglpem">Tanggal Peminjaman:</label>
+                                            <input type="text" class="form-control" id="tglpem">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nim">NIM:</label>
+                                            <input type="text" class="form-control" id="nim">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="hp">No HP:</label>
+                                            <input type="text" class="form-control" id="hp">
+                                        </div>
+                                    </form>
+                                    <div id="pesanPeminjaman" style="color: green;"></div>
+                                </div>
+            
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-primary" onclick="tambahBuku()">Simpan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="pengembalianModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Pengembalian Buku</h4>
+                                    <button type="button" class="close btn-danger" data-dismiss="modal">&times;</button>
+                                </div>
+            
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="judul">Judul Buku:</label>
+                                            <input type="text" class="form-control" id="judul">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama">Nama Peminjaman:</label>
+                                            <input type="text" class="form-control" id="nama">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kode">Kode Buku:</label>
+                                            <input type="text" class="form-control" id="kode">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tgl">Tanggal Pengembalian:</label>
+                                            <input type="text" class="form-control" id="tgl">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nim">NIM:</label>
+                                            <input type="text" class="form-control" id="nim">
+                                        </div>
+                                    </form>
+                                    <div id="pesanPengembalian" style="color: green;"></div>
+                                </div>
+            
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-primary" onclick="tambahBuku()">Simpan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Judul Buku</th>
+                    <th scope="col">Kode Buku</th>
+                    <th scope="col">Tanggal Peminjaman</th>
+                    <th scope="col">Tanggal Peminjaman</th>
+                    <th scope="col">NIM</th>
+                    <th scope="col">No HP</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Danang Triatmaja</td>
+                    <td>Laskar Pelangi</td>
+                    <td>F.LP.05</td>
+                    <td>21 Oktober 2023</td>
+                    <td>28 Oktober 2023</td>
+                    <td>22.83.0826</td>
+                    <td>087xxxxxxxxx</td>
+                    
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Kuncoro Sihna Mahendra</td>
+                    <td>Sang Pemimpi</td>
+                    <td>F.SP.06</td>
+                    <td>23 Oktober 2023</td>
+                    <td>30 Oktober 2023</td>
+                    <td>22.83.0846</td>
+                    <td>085xxxxxxxxx</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Alfira Yuniar Rusman Putri</td>
+                    <td>Bidadari-Bidadari Surga</td>
+                    <td>F.BBS.04</td>
+                    <td>20 Oktober 2023</td>
+                    <td>27 Oktober 2023</td>
+                    <td>22.83.0880</td>
+                    <td>081xxxxxxxxx</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Vito Desla Fergiyan</td>
+                    <td>Lelaki Harimau</td>
+                    <td>F.LH.04</td>
+                    <td>19 Oktober 2023</td>
+                    <td>26 Oktober 2023</td>
+                    <td>22.83.0877</td>
+                    <td>089xxxxxxxxx</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javasript" src="admin.js"></script>
+    <script src="pinjam.js"></script>
+</body>
+</html>

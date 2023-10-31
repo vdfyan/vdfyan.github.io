@@ -1,0 +1,55 @@
+.nav-link:hover{
+    background-color: gray;
+}
+.display-4{
+    font-weight: bold;
+}
+.card-body-icon{
+    position: absolute;
+    z-index: 0;
+    top: 25px;
+    right: 4px;
+    opacity: 0.4;
+    font-size: 90px;
+}
+.col-md-2.bg-primary {
+    height: 100vh;
+}
+.col-md-2.bg-primary ul.nav {
+    padding-top: 1rem;
+    background-color: #007bff;
+}
+.col-md-2.bg-primary ul.nav a {
+    color: white;
+}
+.col-md-2.bg-primary ul.nav hr {
+    background-color: #343a40;
+    margin: 0.2rem 0;
+}
+.peraturan, .ketentuan {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+.buku-fiksi {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 300px;
+}
+
+.daftar-buku {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.daftar-buku li {
+    margin-bottom: 5px;
+}
+.kata{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
